@@ -86,15 +86,21 @@
       <div class="testimonial">“Robert's magic is not just a performance, it's an experience that leaves you believing in the impossible!” – Sarah J.</div>
       <div class="testimonial">“Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen.” – Michael T.</div>
     </section>
-    <!-- Gallery -->
+    <!-- Gallery (Google Photos Embed) -->
     <section id="gallery" class="gallery" role="region" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading">Gallery</h2>
-      <img src="/api/placeholder/400/300" alt="Robert performing a coin vanish close-up" loading="lazy">
-      <img src="/api/placeholder/400/300" alt="Audience reaction to a card trick by Robert" loading="lazy">
-      <img src="/api/placeholder/400/300" alt="Robert Ellams wristwatch vanish effect" loading="lazy">
-      <img src="/api/placeholder/400/300" alt="Close-up sleight of hand demonstration" loading="lazy">
-      <img src="/api/placeholder/400/300" alt="Table-to-table magic interaction" loading="lazy">
-      <img src="/api/placeholder/400/300" alt="Robert Ellams bowing to audience applause" loading="lazy">
+      <div class="photo-album-embed" style="max-width:1200px; margin:0 auto;">
+        <iframe
+          src="https://photos.app.goo.gl/MxVDgLpwx35To18w6?authuser=0&embed=1"
+          width="100%"
+          height="600"
+          frameborder="0"
+          allowfullscreen
+          loading="lazy"
+          style="border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3);"
+          title="Robert Ellams Photo Album">
+        </iframe>
+      </div>
     </section>
     <!-- Contact (Google Form Embed) -->
     <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
@@ -108,7 +114,7 @@
       <div class="social-icons" aria-label="Social media links">
         <a href="#" aria-label="Facebook">Facebook</a>
         <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-labelledby="Twitter">Twitter</a>
       </div>
     </section>
   </main>
@@ -129,10 +135,17 @@
     @media(max-width:768px) { .service-box { padding:1rem } }
     .testimonials { background:#1E1E1E }
     .testimonial { font-family:'Satisfy',cursive; font-size:1.2rem; max-width:600px; margin:0 auto 2rem; font-style:italic }
-    .gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem }
-    .gallery img { width:100%; transition:all .3s }
-    .gallery img:hover { transform:scale(1.05); opacity:.8 }
-    @media(max-width:768px){ .gallery { grid-template-columns:1fr } }
+    
+    /* Updated gallery styles */
+    .gallery {
+      display: block;
+      padding: 5rem 5%;
+      text-align: center;
+    }
+    .gallery img {
+      display: none;
+    }
+    
     .google-form-wrapper iframe { border:none; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3) }
     .skip-link { position:absolute; top:0; left:0; background:#FFD700; color:#121212; padding:8px 16px; transform:translateY(-100%); transition:transform .3s; z-index:1001 }
     .skip-link:focus { transform:translateY(0) }
