@@ -1,445 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert Ellams - Magic Experience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" rel="stylesheet">
-    <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Step into a world of wonder with Robert Ellams—close-up magic for weddings, parties, corporate events, and more!">
+  <title>Robert Ellams - Magic Experience</title>
+  <link rel="icon" href="/favicon.ico">
 
-        :root {
-            --dark-black: #121212;
-            --soft-black: #1E1E1E;
-            --grey: #333333;
-            --white: #F4F4F4;
-            --purple-accent: #FFD700; /* Gold color */
-            --magical-glow: rgba(106, 90, 205, 0.6);
-        }
+  <!-- Open Graph & Twitter Card -->
+  <meta property="og:title" content="Robert Ellams – Magic Experience">
+  <meta property="og:description" content="Experience astonishing close-up magic and friendly banter with Robert Ellams.">
+  <meta property="og:image" content="images/hero-large.webp">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
-        body {
-            font-family: 'Cinzel', serif;
-            background-color: var(--dark-black);
-            color: var(--white);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation Styles */
-        header {
-            position: fixed;
-            width: 100%;
-            background-color: rgba(18, 18, 18, 0.9);
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 20px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--purple-accent);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--purple-accent);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('/api/placeholder/1920/1080') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 5%;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-            text-shadow: 0 0 20px var(--magical-glow);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--purple-accent);
-            color: var(--dark-black);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(255,215,0,0.5);
-            border: 1px solid rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255,215,0,0.7);
-            background-color: #FFE873; /* Slightly lighter gold for hover */
-        }
-
-        /* Sections Common Styles */
-        section {
-            padding: 5rem 5%;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--soft-black);
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .about img {
-            max-width: 40%;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-
-        .about-content {
-            text-align: left;
-            max-width: 50%;
-        }
-
-        /* Services Section */
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-box {
-            background-color: var(--grey);
-            padding: 2rem;
-            border-radius: 10px;
-            width: calc(50% - 1rem);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-box h3 {
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .service-box p {
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .service-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        @media (max-width: 768px) {
-            .service-box {
-                width: 100%;
-            }
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--soft-black);
-        }
-
-        .testimonial {
-            font-family: 'Satisfy', cursive;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-style: italic;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .gallery img {
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-            opacity: 0.8;
-        }
-
-        /* Contact Section */
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 1rem;
-            background-color: var(--grey);
-            border: none;
-            color: var(--white);
-        }
-
-        .contact-form button {
-            background-color: var(--purple-accent);
-            color: var(--white);
-            border: none;
-            padding: 12px 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #5D4BF1;
-        }
-
-        .social-icons {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-icons a {
-            color: var(--white);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--purple-accent);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-black);
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about {
-                flex-direction: column;
-            }
-
-            .about img, .about-content {
-                max-width: 100%;
-            }
-
-            .services {
-                flex-direction: column;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Magical Particle Animation */
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
-        }
-
-        .magic-particle {
-            position: absolute;
-            background-color: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float 3s infinite;
-        }
-    </style>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">Robert Ellams</a>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header role="banner">
+    <a href="#" class="logo">Robert Ellams</a>
+    <nav role="navigation">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <h1>Experience the Magic</h1>
-        <p>Step into a world of wonder with Robert Ellams</p>
-        <a href="#contact" class="cta-button">Book a Show</a>
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 id="hero-heading">Experience the Magic</h1>
+      <p>Step into a world of wonder with Robert Ellams</p>
+      <a href="#contact" class="cta-button">Book a Show</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <picture>
+        <!-- small screens -->
+        <source srcset="images/about-small.webp 1x, images/about-small@2x.webp 2x" type="image/webp" media="(max-width: 768px)">
+        <!-- large screens -->
+        <source srcset="images/about.webp 1x, images/about@2x.webp 2x" type="image/webp">
+        <img src="images/about.jpg"
+             alt="Robert Ellams standing next to his promotional magic banner at an event"
+             loading="lazy"
+             width="600"
+             height="400">
+      </picture>
+      <div class="about-content">
+        <h2 id="about-heading">About Robert Ellams</h2>
+        <p>Based in Tameside between Manchester, Oldham and Huddersfield, Robert’s unique blend of astonishing close‑up magic and friendly comedic banter is perfect for weddings, birthdays, corporate dinners, charity fundraisers, and more. He tailors each performance—from formal corporate functions to intimate home gatherings—to your event’s style and duration.</p>
+      </div>
     </section>
 
-    <section id="about" class="about">
-        <img src="/api/placeholder/500/600" alt="Robert Ellams Performing">
-        <div class="about-content">
-            <h2>About Robert Ellams</h2>
-            <p>Based in Tameside in between Manchester, Oldham and Huddersfield, he is within easy reach of Yorkshire, Lancashire and Derbyshire and willing to travel anywhere in the country. Robert’s unique blend of astonishing magic with friendly comedic banter is a must for any events from Weddings, Birthdays, Corporate Dinners to Charity Fundraisers. From formal ‘corporate’ to the more informal ‘small gatherings’, large hospitality suites to the host or hostesses home. Robert can arrange the appropriate cards, coins and other routines to suit your needs and for the length of time you want him.</p>
-        
-        </div>
+    <section id="services" class="services" aria-labelledby="services-heading">
+      <h2 id="services-heading">Services</h2>
+      <div class="service-box">
+        <h3>Weddings</h3>
+        <p>Add a magical touch to your special day with memorable close‑up entertainment.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
+      <div class="service-box">
+        <h3>Corporate Functions</h3>
+        <p>Engage and entertain your team with professional and sophisticated magic.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
+      <div class="service-box">
+        <h3>Dinners & Evening Functions</h3>
+        <p>Create excitement at your event with up‑close illusions that awe your guests.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
+      <div class="service-box">
+        <h3>Birthdays</h3>
+        <p>Make birthdays extraordinary for guests of all ages with interactive magic.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="service-box">
-            <h3>Weddings</h3>
-            <p>Add a magical touch to your special day with memorable entertainment that will delight your guests.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-box">
-            <h3>Corporate Functions</h3>
-            <p>Engage and entertain your team with professional, sophisticated magical performances.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-box">
-            <h3>Dinners & Evening Functions</h3>
-            <p>Create an unforgettable atmosphere with close-up magic that brings excitement to your event.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-box">
-            <h3>Birthdays</h3>
-            <p>Make birthdays extraordinary with magical entertainment that amazes guests of all ages.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
+    <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
+      <h2 id="testimonials-heading">What People Say</h2>
+      <blockquote class="testimonial">“Robert's magic is not just a performance, it's an experience that leaves you wondering and believing in the impossible!”<footer>— Sarah J.</footer></blockquote>
+      <blockquote class="testimonial">“Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen.”<footer>— Michael T.</footer></blockquote>
     </section>
 
-    <section id="testimonials" class="testimonials">
-        <h2>What People Say</h2>
-        <div class="testimonial">
-            "Robert's magic is not just a performance, it's an experience that leaves you wondering and believing in the impossible!" - Sarah J.
-        </div>
-        <div class="testimonial">
-            "Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen." - Michael T.
-        </div>
+    <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <picture>
+        <source srcset="images/gallery1-small.webp" media="(max-width: 768px)" type="image/webp">
+        <img src="images/gallery1.jpg" alt="Robert Ellams making a card float" loading="lazy" width="400" height="300">
+      </picture>
+      <!-- Repeat for gallery2, gallery3, etc. -->
     </section>
 
-    <section id="gallery" class="gallery">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 1">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 2">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 3">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 4">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 5">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 6">
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Book Robert Ellams</h2>
+      <form class="contact-form" action="/send-message" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="social-icons" role="contentinfo">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Twitter">Twitter</a>
+      </div>
     </section>
+  </main>
 
-    <section id="contact" class="contact">
-        <h2>Book Robert Ellams</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="social-icons">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-        </div>
-    </section>
+  <footer role="contentinfo">
+    © 2025 Robert Ellams Magic. All Rights Reserved.
+  </footer>
 
-    <footer>
-        © 2025 Robert Ellams Magic. All Rights Reserved.
-    </footer>
-
-    <script>
-        // Magical Particle Animation
-        function createMagicParticles() {
-            const particleCount = 20;
-            const hero = document.querySelector('.hero');
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('magic-particle');
-                
-                particle.style.width = `${Math.random() * 5 + 2}px`;
-                particle.style.height = particle.style.width;
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                particle.style.opacity = Math.random();
-                
-                hero.appendChild(particle);
-            }
-        }
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Initialize Particles
-        createMagicParticles();
-    </script>
+  <!-- External JS -->
+  <script src="js/main.js" defer></script>
 </body>
 </html>
+
+<!-- css/styles.css -->
+:root {
+  --dark-black: #121212;
+  --soft-black: #1E1E1E;
+  --grey: #333333;
+  --white: #F4F4F4;
+  --accent-gold: #FFD700;
+  --accent-gold-hover: #FFE873;
+  --magical-glow: rgba(106,90,205,0.6);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Cinzel', serif;
+  background-color: var(--dark-black);
+  color: var(--white);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+header {
+  position: fixed; width: 100%; background: rgba(18,18,18,0.9);
+  padding: 1rem 5%; display: flex; justify-content: space-between;
+  align-items: center; backdrop-filter: blur(10px); z-index: 1000;
+}
+.logo { font-size: 2rem; font-weight: 700; color: var(--white); letter-spacing: 2px; text-decoration: none; }
+nav a {
+  color: var(--white); margin-left: 1.25rem; text-decoration: none; position: relative;
+  transition: color 0.3s;
+}
+nav a::after {
+  content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+  background: var(--accent-gold); transition: width 0.3s;
+}
+nav a:hover, nav a:focus { color: var(--accent-gold); outline: none; }
+nav a:hover::after, nav a:focus::after { width: 100%; }
+
+.hero {
+  position: relative; height: 85vh; display: flex;
+  align-items: center; justify-content: center; text-align: center;
+  overflow: hidden;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('../images/hero-large.webp') center/cover no-repeat;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem;
+  text-shadow: 0 0 20px var(--magical-glow);
+}
+.hero-content p { font-size: 1.3rem; margin-bottom: 1.5rem; max-width: 700px; }
+.cta-button {
+  padding: .75rem 1.875rem; background: var(--accent-gold);
+  color: var(--dark-black); border-radius: 5px; text-decoration: none;
+  box-shadow: 0 0 15px rgba(255,215,0,0.5); border: 1px solid rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.cta-button:hover, .cta-button:focus {
+  transform: scale(1.05); box-shadow: 0 0 25px rgba(255,215,0,0.7);
+  background: var(--accent-gold-hover); outline: none;
+}
+
+main section { padding: 5rem 5%; text-align: center; }
+main h2 { font-size: 3rem; margin-bottom: 2rem; }
+
+.about { display: flex; align-items: center; gap: 2rem; background: var(--soft-black); }
+.about picture { flex: 0 0 40%; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.about picture img { width: 100%; height: auto; display: block; object-fit: cover; }
+.about-content { flex: 1; text-align: left; }
+
+.services { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+.service-box { background: var(--grey); padding: 2rem; border-radius: 10px;
+  flex: 1 1 calc(50% - 1rem); display: flex; flex-direction: column; align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-box:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+.testimonials { background: var(--soft-black); }
+.testimonial { font-family: 'Satisfy', cursive; font-size: 1.2rem; max-width: 600px;
+  margin: 0 auto 2rem; font-style: italic;
+}
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1rem; }
+.gallery picture { overflow: hidden; }
+.gallery img { width: 100%; height: auto; display: block; transition: transform 0.3s, opacity 0.3s; }
+.gallery img:hover { transform: scale(1.05); opacity: 0.8; }
+
+.contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 1rem;
+  background: var(--grey); border: none; color: var(--white); }
+.contact-form button { background: var(--accent-gold); color: var(--white);
+  border: none; padding: .75rem 1.875rem; cursor: pointer; transition: background 0.3s;
+}
+.contact-form button:hover, .contact-form button:focus { background: #5D4BF1; outline: none; }
+.social-icons { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+.social-icons a { font-size: 1.5rem; transition: color 0.3s; }
+.social-icons a:hover, .social-icons a:focus { color: var(--accent-gold); outline: none; }
+
+footer { background: var(--dark-black); text-align: center; padding: 1rem; font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+  .about { flex-direction: column; }
+  .about picture { width: 100%; }
+  .hero-content h1 { font-size: 2.5rem; }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.magic-particle {
+  position: absolute; background: rgba(255,255,255,0.5); border-radius: 50%;
+  pointer-events: none; animation: float 3s infinite;
+}
+
+<!-- js/main.js -->
+document.addEventListener('DOMContentLoaded', () => {
+  // Magic particles
+  const hero = document.querySelector('.hero');
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.className = 'magic-particle';
+    const size = Math.random() * 5 + 2;
+    p.style.width = p.style.height = `${size}px`;
+    p.style.left = `${Math.random() * 100}%`;
+    p.style.top = `${Math.random() * 100}%`;
+    p.style.opacity = Math.random();
+    hero.appendChild(p);
+  }
+
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+});
