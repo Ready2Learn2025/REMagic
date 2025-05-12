@@ -1,0 +1,16 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --dark-black: #121212;
+  --soft-black: #1E1E1E;
+  --grey: #333333;
+  --white: #F4F4F4;
+  --purple-accent: #FFD700;
+  --magical-glow: rgba(106, 90, 205, 0.6);
+}
+body {
+  font-family: 'Cinzel', serif;
+  background: var(--dark-black);
+  color: var(--white);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
