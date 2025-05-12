@@ -7,21 +7,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- PublicAlbum.js Embed Script -->
+  <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
+
   <!-- Critical CSS Inline -->
   <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Cinzel',serif;background:#121212;color:#F4F4F4;line-height:1.6;scroll-behavior:smooth}
-    header{position:fixed;top:0;left:0;width:100%;background:rgba(18,18,18,0.9);padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(10px);z-index:1000}
-    .logo{font-size:2rem;font-weight:700;color:#F4F4F4;text-decoration:none;letter-spacing:2px}
-    nav a{color:#F4F4F4;text-decoration:none;margin-left:20px;position:relative;transition:color .3s}
-    nav a::after{content:'';position:absolute;width:0;height:2px;bottom:-5px;left:0;background:#FFD700;transition:width .3s}
-    nav a:hover{color:#FFD700}
-    nav a:hover::after{width:100%}
-    .hero{height:85vh;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/api/placeholder/1920/1080')center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 5%}
-    .hero h1{font-size:3.5rem;margin-bottom:1rem;text-shadow:0 0 20px rgba(106,90,205,0.6)}
-    .hero p{font-size:1.3rem;margin-bottom:1.5rem;max-width:700px}
-    .cta-button{display:inline-block;padding:12px 30px;background:#FFD700;color:#121212;text-decoration:none;border-radius:5px;box-shadow:0 0 15px rgba(255,215,0,0.5);border:1px solid rgba(0,0,0,0.2);transition:transform .3s,box-shadow .3s}
-    .cta-button:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,215,0,0.7);background:#FFE873}
+    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
+    body { font-family:'Cinzel',serif; background:#121212; color:#F4F4F4; line-height:1.6; scroll-behavior:smooth }
+    header { position:fixed; top:0; left:0; width:100%; background:rgba(18,18,18,0.9); padding:1rem 5%; display:flex; justify-content:space-between; align-items:center; backdrop-filter:blur(10px); z-index:1000 }
+    .logo { font-size:2rem; font-weight:700; color:#F4F4F4; text-decoration:none; letter-spacing:2px }
+    nav a { color:#F4F4F4; text-decoration:none; margin-left:20px; position:relative; transition:color .3s }
+    nav a::after { content:''; position:absolute; width:0; height:2px; bottom:-5px; left:0; background:#FFD700; transition:width .3s }
+    nav a:hover { color:#FFD700 }
+    nav a:hover::after { width:100% }
+    .hero { height:85vh; background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/api/placeholder/1920/1080')center/cover no-repeat; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 5% }
+    .hero h1 { font-size:3.5rem; margin-bottom:1rem; text-shadow:0 0 20px rgba(106,90,205,0.6) }
+    .hero p { font-size:1.3rem; margin-bottom:1.5rem; max-width:700px }
+    .cta-button { display:inline-block; padding:12px 30px; background:#FFD700; color:#121212; text-decoration:none; border-radius:5px; box-shadow:0 0 15px rgba(255,215,0,0.5); border:1px solid rgba(0,0,0,0.2); transition:transform .3s,box-shadow .3s }
+    .cta-button:hover { transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.7); background:#FFE873 }
+
+    /* Hide placeholder until PublicAlbum.js replaces it */
+    .pa-gallery-player-widget,
+    .pa-carousel-widget { display: none; }
   </style>
 </head>
 <body>
@@ -36,6 +44,7 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
   <main id="main" tabindex="-1">
     <!-- Hero -->
     <section class="hero" role="region" aria-labelledby="hero-heading">
@@ -43,6 +52,7 @@
       <p>Step into a world of wonder with Robert Ellams</p>
       <a href="#contact" class="cta-button">Book a Show</a>
     </section>
+
     <!-- About -->
     <section id="about" class="about" role="region" aria-labelledby="about-heading">
       <img src="/api/placeholder/500/600" alt="Robert Ellams performing a close-up card trick" loading="lazy">
@@ -51,6 +61,7 @@
         <p>Based in Tameside between Manchester, Oldham and Huddersfield, he travels nationwide. Robert’s unique blend of astonishing magic and friendly comedic banter elevates events from weddings and birthdays to corporate dinners and charity fundraisers.</p>
       </div>
     </section>
+
     <!-- Services -->
     <section id="services" class="services" role="region" aria-labelledby="services-heading">
       <h2 id="services-heading">Services</h2>
@@ -80,27 +91,26 @@
         <a href="#contact" class="cta-button">Learn More</a>
       </div>
     </section>
+
     <!-- Testimonials -->
     <section id="testimonials" class="testimonials" role="region" aria-labelledby="testimonials-heading">
       <h2 id="testimonials-heading">What People Say</h2>
       <div class="testimonial">“Robert's magic is not just a performance, it's an experience that leaves you believing in the impossible!” – Sarah J.</div>
       <div class="testimonial">“Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen.” – Michael T.</div>
     </section>
-    <!-- Gallery (Google Drive Folder Embed) -->
+
+    <!-- Gallery (PublicAlbum.js) -->
     <section id="gallery" class="gallery" role="region" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading">Gallery</h2>
-      <div class="drive-gallery-embed" style="max-width:1200px; margin:0 auto;">
-        <iframe
-          src="https://drive.google.com/embeddedfolderview?id=YOUR_DRIVE_FOLDER_ID#grid"
-          width="100%"
-          height="600"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-          style="border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3);">
-        </iframe>
+      <div
+        class="pa-gallery-player-widget"
+        style="width:100%; max-width:1200px; height:600px; margin:0 auto;"
+        data-link="https://photos.app.goo.gl/MxVDgLpwx35To18w6"
+        data-title="Robert Ellams Magic Moments"
+        data-show-download-button="true">
       </div>
     </section>
+
     <!-- Contact (Google Form Embed) -->
     <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
       <h2 id="contact-heading">Book a callback below </h2>
@@ -117,6 +127,7 @@
       </div>
     </section>
   </main>
+
   <footer>© 2025 Robert Ellams Magic. All Rights Reserved.</footer>
 
   <!-- Deferred Non-critical CSS -->
@@ -134,17 +145,6 @@
     @media(max-width:768px) { .service-box { padding:1rem } }
     .testimonials { background:#1E1E1E }
     .testimonial { font-family:'Satisfy',cursive; font-size:1.2rem; max-width:600px; margin:0 auto 2rem; font-style:italic }
-    
-    /* Updated gallery override */
-    .gallery {
-      display: block;
-      padding: 5rem 5%;
-      text-align: center;
-    }
-    .gallery img {
-      display: none;
-    }
-    
     .google-form-wrapper iframe { border:none; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3) }
     .skip-link { position:absolute; top:0; left:0; background:#FFD700; color:#121212; padding:8px 16px; transform:translateY(-100%); transition:transform .3s; z-index:1001 }
     .skip-link:focus { transform:translateY(0) }
@@ -161,4 +161,20 @@
         const size = Math.random() * 5 + 2;
         p.style.width = p.style.height = `${size}px`;
         p.style.left = `${Math.random() * 100}%`;
-        p.style.top = `${
+        p.style.top = `${Math.random() * 100}%`;
+        p.style.opacity = Math.random();
+        hero.appendChild(p);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', createMagicParticles);
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior:'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
