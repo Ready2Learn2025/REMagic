@@ -1,445 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert Ellams - Magic Experience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" rel="stylesheet">
-    <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --dark-black: #121212;
-            --soft-black: #1E1E1E;
-            --grey: #333333;
-            --white: #F4F4F4;
-            --purple-accent: #FFD700; /* Gold color */
-            --magical-glow: rgba(106, 90, 205, 0.6);
-        }
-
-        body {
-            font-family: 'Cinzel', serif;
-            background-color: var(--dark-black);
-            color: var(--white);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation Styles */
-        header {
-            position: fixed;
-            width: 100%;
-            background-color: rgba(18, 18, 18, 0.9);
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 20px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--purple-accent);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--purple-accent);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('/api/placeholder/1920/1080') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 5%;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-            text-shadow: 0 0 20px var(--magical-glow);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--purple-accent);
-            color: var(--dark-black);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(255,215,0,0.5);
-            border: 1px solid rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255,215,0,0.7);
-            background-color: #FFE873; /* Slightly lighter gold for hover */
-        }
-
-        /* Sections Common Styles */
-        section {
-            padding: 5rem 5%;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--soft-black);
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .about img {
-            max-width: 40%;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-
-        .about-content {
-            text-align: left;
-            max-width: 50%;
-        }
-
-        /* Services Section */
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-box {
-            background-color: var(--grey);
-            padding: 2rem;
-            border-radius: 10px;
-            width: calc(50% - 1rem);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-box h3 {
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .service-box p {
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .service-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        @media (max-width: 768px) {
-            .service-box {
-                width: 100%;
-            }
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--soft-black);
-        }
-
-        .testimonial {
-            font-family: 'Satisfy', cursive;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-style: italic;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .gallery img {
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-            opacity: 0.8;
-        }
-
-        /* Contact Section */
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 1rem;
-            background-color: var(--grey);
-            border: none;
-            color: var(--white);
-        }
-
-        .contact-form button {
-            background-color: var(--purple-accent);
-            color: var(--white);
-            border: none;
-            padding: 12px 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #5D4BF1;
-        }
-
-        .social-icons {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-icons a {
-            color: var(--white);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--purple-accent);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-black);
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about {
-                flex-direction: column;
-            }
-
-            .about img, .about-content {
-                max-width: 100%;
-            }
-
-            .services {
-                flex-direction: column;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Magical Particle Animation */
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
-        }
-
-        .magic-particle {
-            position: absolute;
-            background-color: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float 3s infinite;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robert Ellams - Magic Experience</title>
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'">
+  <!-- Critical CSS Inline -->
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Cinzel',serif;background:#121212;color:#F4F4F4;line-height:1.6;scroll-behavior:smooth}
+    header{position:fixed;width:100%;background:rgba(18,18,18,.9);z-index:1000;padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(10px)}
+    .logo{font-size:2rem;font-weight:700;color:#F4F4F4;text-decoration:none;letter-spacing:2px}
+    nav a{color:#F4F4F4;text-decoration:none;margin-left:20px;position:relative;transition:color .3s}
+    nav a::after{content:'';position:absolute;width:0;height:2px;bottom:-5px;left:0;background:#FFD700;transition:width .3s}
+    nav a:hover{color:#FFD700}
+    nav a:hover::after{width:100%}
+    .hero{height:85vh;background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('/api/placeholder/1920/1080')center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 5%}
+    .hero h1{font-size:3.5rem;margin-bottom:1rem;text-shadow:0 0 20px rgba(106,90,205,.6)}
+    .hero p{font-size:1.3rem;margin-bottom:1.5rem;max-width:700px}
+    .cta-button{display:inline-block;padding:12px 30px;background:#FFD700;color:#121212;text-decoration:none;border-radius:5px;box-shadow:0 0 15px rgba(255,215,0,.5);border:1px solid rgba(0,0,0,.2);transition:transform .3s,box-shadow .3s}
+    .cta-button:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,215,0,.7);background:#FFE873}
+  </style>
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">Robert Ellams</a>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header>
+    <a href="#" class="logo">Robert Ellams</a>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <h1>Experience the Magic</h1>
-        <p>Step into a world of wonder with Robert Ellams</p>
-        <a href="#contact" class="cta-button">Book a Show</a>
+  <main id="main" tabindex="-1">
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Experience the Magic</h1>
+      <p>Step into a world of wonder with Robert Ellams</p>
+      <a href="#contact" class="cta-button">Book a Show</a>
     </section>
 
-    <section id="about" class="about">
-        <img src="/api/placeholder/500/600" alt="Robert Ellams Performing">
-        <div class="about-content">
-            <h2>About Robert Ellams</h2>
-            <p>Based in Tameside in between Manchester, Oldham and Huddersfield, he is within easy reach of Yorkshire, Lancashire and Derbyshire and willing to travel anywhere in the country. Robert’s unique blend of astonishing magic with friendly comedic banter is a must for any events from Weddings, Birthdays, Corporate Dinners to Charity Fundraisers. From formal ‘corporate’ to the more informal ‘small gatherings’, large hospitality suites to the host or hostesses home. Robert can arrange the appropriate cards, coins and other routines to suit your needs and for the length of time you want him.</p>
-        
-        </div>
+    <!-- About Section -->
+    <section id="about" class="about" role="region" aria-labelledby="about-heading">
+      <img src="/api/placeholder/500/600"
+           alt="Robert Ellams performing a close-up card trick"
+           loading="lazy">
+      <div class="about-content">
+        <h2 id="about-heading">About Robert Ellams</h2>
+        <p>Based in Tameside between Manchester, Oldham and Huddersfield, he travels
+        nationwide. Robert’s unique blend of astonishing magic and friendly
+        comedic banter elevates events from weddings and birthdays to corporate
+        dinners and charity fundraisers.</p>
+      </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="service-box">
-            <h3>Weddings</h3>
-            <p>Add a magical touch to your special day with memorable entertainment that will delight your guests.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-box">
-            <h3>Corporate Functions</h3>
-            <p>Engage and entertain your team with professional, sophisticated magical performances.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-box">
-            <h3>Dinners & Evening Functions</h3>
-            <p>Create an unforgettable atmosphere with close-up magic that brings excitement to your event.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-box">
-            <h3>Birthdays</h3>
-            <p>Make birthdays extraordinary with magical entertainment that amazes guests of all ages.</p>
-            <a href="#contact" class="cta-button">Learn More</a>
-        </div>
+    <!-- Services Section -->
+    <section id="services" class="services" role="region" aria-labelledby="services-heading">
+      <h2 id="services-heading">Services</h2>
+      <div class="service-box" role="article">
+        <h3>Weddings</h3>
+        <p>Add a magical touch to your special day with entertainment that delights guests.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
+      <div class="service-box" role="article">
+        <h3>Corporate Functions</h3>
+        <p>Engage and impress your team with sophisticated close-up magic.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
+      <div class="service-box" role="article">
+        <h3>Dinners & Evening Functions</h3>
+        <p>Create an unforgettable atmosphere with intimate magical moments.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
+      <div class="service-box" role="article">
+        <h3>Birthdays</h3>
+        <p>Make birthdays extraordinary with magic that amazes all ages.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
+      <div class="service-box" role="article">
+        <h3>Charity Fundraisers</h3>
+        <p>Support your cause with captivating magic that engages and inspires donors.</p>
+        <a href="#contact" class="cta-button">Learn More</a>
+      </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
-        <h2>What People Say</h2>
-        <div class="testimonial">
-            "Robert's magic is not just a performance, it's an experience that leaves you wondering and believing in the impossible!" - Sarah J.
-        </div>
-        <div class="testimonial">
-            "Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen." - Michael T.
-        </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials" role="region" aria-labelledby="testimonials-heading">
+      <h2 id="testimonials-heading">What People Say</h2>
+      <div class="testimonial">“Robert's magic is not just a performance, it's an experience
+        that leaves you believing in the impossible!” – Sarah J.</div>
+      <div class="testimonial">“Absolutely mesmerizing! Robert's skills are beyond anything I've ever
+        seen.” – Michael T.</div>
     </section>
 
-    <section id="gallery" class="gallery">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 1">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 2">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 3">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 4">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 5">
-        <img src="/api/placeholder/400/300" alt="Magic Performance 6">
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery" role="region" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <img src="/api/placeholder/400/300" alt="Robert performing a coin vanish close-up" loading="lazy">
+      <img src="/api/placeholder/400/300" alt="Audience reaction to a card trick by Robert" loading="lazy">
+      <img src="/api/placeholder/400/300" alt="Robert Ellis wristwatch vanish effect" loading="lazy">
+      <img src="/api/placeholder/400/300" alt="Close-up sleight of hand demonstration" loading="lazy">
+      <img src="/api/placeholder/400/300" alt="Table-to-table magic interaction" loading="lazy">
+      <img src="/api/placeholder/400/300" alt="Robert Ellams bowing to audience applause" loading="lazy">
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Book Robert Ellams</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="social-icons">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Book Robert Ellams</h2>
+      <form name="contact-form" id="contactForm" class="contact-form" aria-describedby="contact-instructions">
+        <p id="contact-instructions" class="visually-hidden">
+          Fill in your name, email, and message.
+        </p>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="formMessage" role="alert" style="margin-top:1rem;"></div>
+      <div class="social-icons" aria-label="Social media links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Twitter">Twitter</a>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        © 2025 Robert Ellams Magic. All Rights Reserved.
-    </footer>
+  <footer>© 2025 Robert Ellams Magic. All Rights Reserved.</footer>
 
-    <script>
-        // Magical Particle Animation
-        function createMagicParticles() {
-            const particleCount = 20;
-            const hero = document.querySelector('.hero');
+  <!-- Deferred Non-Critical CSS & JS -->
+  <style>
+    section{padding:5rem 5%;text-align:center}
+    section h2{font-size:3rem;margin-bottom:2rem}
+    .about{background:#1E1E1E;display:flex;align-items:center;gap:3rem}
+    .about img{max-width:40%;border-radius:10px;box-shadow:0 0 30px rgba(0,0,0,.5)}
+    .about-content{text-align:left;max-width:50%}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
+    .service-box{background:#333;padding:1.5rem;border-radius:10px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform .3s,box-shadow .3s}
+    .service-box h3{margin-bottom:1rem;color:#F4F4F4}
+    .service-box p{margin-bottom:1rem;flex-grow:1}
+    .service-box:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,.3)}
+    @media(max-width:768px){.service-box{padding:1rem}}
+    .testimonials{background:#1E1E1E}
+    .testimonial{font-family:'Satisfy',cursive;font-size:1.2rem;max-width:600px;margin:0 auto 2rem;font-style:italic}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .gallery img{width:100%;transition:all .3s}
+    .gallery img:hover{transform:scale(1.05);opacity:.8}
+    @media(max-width:768px){.gallery{grid-template-columns:1fr}}
+    .contact-form{max-width:500px;margin:0 auto}
+    .contact-form input,.contact-form textarea{width:100%;padding:10px;margin-bottom:1rem;background:#333;border:none;color:#F4F4F4}
+    .contact-form button{background:#FFD700;color:#F4F4F4;border:none;padding:12px 30px;cursor:pointer;transition:all .3s}
+    .contact-form button:hover{background:#5D4BF1}
+    .social-icons{margin-top:2rem;display:flex;justify-content:center;gap:1rem}
+    .social-icons a{color:#F4F4F4;font-size:1.5rem;transition:color .3s}
+    .social-icons a:hover{color:#FFD700}
+    footer{background:#121212;text-align:center;padding:1rem;font-size:.9rem}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
+    .magic-particle{position:absolute;background:rgba(255,255,255,.5);border-radius:50%;pointer-events:none;animation:float 3s infinite}
+    .skip-link{position:absolute;top:0;left:0;background:#FFD700;color:#121212;padding:8px 16px;transform:translateY(-100%);transition:transform .3s;z-index:1001}
+    .skip-link:focus{transform:translateY(0)}
+  </style>
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('magic-particle');
-                
-                particle.style.width = ${Math.random() * 5 + 2}px;
-                particle.style.height = particle.style.width;
-                particle.style.left = ${Math.random() * 100}%;
-                particle.style.top = ${Math.random() * 100}%;
-                particle.style.opacity = Math.random();
-                
-                hero.appendChild(particle);
-            }
-        }
+  <script defer>
+    // Particle Animation
+    function createMagicParticles() {
+      const hero = document.querySelector('.hero');
+      for (let i = 0; i < 20; i++) {
+        const p = document.createElement('div');
+        p.className = 'magic-particle';
+        const size = Math.random() * 5 + 2;
+        p.style.width = p.style.height = `${size}px`;
+        p.style.left = `${Math.random() * 100}%`;
+        p.style.top = `${Math.random() * 100}%`;
+        p.style.opacity = Math.random();
+        hero.appendChild(p);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', createMagicParticles);
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
 
-        // Initialize Particles
-        createMagicParticles();
-    </script>
+    // Google Sheets via Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+    const form = document.forms['contact-form'];
+    const msg = document.getElementById('formMessage');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(() => {
+        form.reset();
+        msg.textContent = 'Thanks! Your request has been sent.';
+      })
+      .catch(() => {
+        msg.textContent = 'Oops! There was a problem.';
+      });
+    });
+  </script>
 </body>
 </html>
