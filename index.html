@@ -157,11 +157,32 @@
 <section id="contact" class="contact" aria-labelledby="contact-heading" role="region">
   <h2 id="contact-heading">Enquire &amp; Book</h2>
 
-  <form id="booking-form"
-        action="https://formspree.io/f/yourFormID"  <!-- 👈 Change to your endpoint -->
-        method="POST"
-        novalidate
-        style="max-width:700px;margin-inline:auto;">
+<form>
+  <div>
+    <label for="test">Name : </label>
+    <input type="text" id="test" name="test" required>
+  </div>
+  <div>
+    <label for="number">Number :</label>
+    <input type="text" id="number" name="number" required>
+  </div>
+  <div>
+    <label for="email">Email : </label>
+    <input type="text" id="email" name="email" required>
+  </div>
+  <div>
+    <label for="event_type">Event Type </label>
+    <input type="checkbox" id="event_type_0" name="event_type" value="option1">
+    <label for="event_type_0">Weddings</label>
+    <input type="checkbox" id="event_type_1" name="event_type" value="option2">
+    <label for="event_type_1">Corporate Events</label>
+    <input type="checkbox" id="event_type_2" name="event_type" value="option3">
+    <label for="event_type_2">Private Parties</label>
+    <input type="checkbox" id="event_type_3" name="event_type" value="option4">
+    <label for="event_type_3">Charity Events</label>
+  </div>
+  <button type="submit">Submit</button>
+</form>
 
     <!-- Name -->
     <div class="form-field">
