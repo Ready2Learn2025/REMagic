@@ -12,10 +12,11 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-  <!-- Third‑party marketing/analytics scripts will only load after consent -->
+  <!-- Third‑party marketing/analytics scripts (deferred until consent) -->
   <script type="text/plain" data-cookiecategory="marketing" data-src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js"></script>
   <script type="text/plain" data-cookiecategory="marketing" data-src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js" data-module="true"></script>
 
+  <!-- Chatbot embed placeholder (script loads after consent) -->
   <zapier-interfaces-chatbot-embed is-popup="true" chatbot-id="cmaljj78c001hzs11cqkxflxz"></zapier-interfaces-chatbot-embed>
 
   <!-- Critical CSS -->
@@ -34,34 +35,44 @@
     #cookie-accept{background:var(--accent);color:var(--bg-dark)}
     #cookie-decline{background:transparent;color:var(--txt-light);border:1px solid var(--txt-light)}
 
-    /* CTA button + rest of styles (trimmed for brevity) */
+    /* Global components (trimmed) */
     .cta-button{display:inline-block;padding:.75rem 1.75rem;background:var(--accent);color:var(--bg-dark);border-radius:6px;font-weight:700;border:1px solid rgba(0,0,0,.15);box-shadow:0 0 12px rgba(255,215,0,.45);transition:transform .3s,box-shadow .3s}
     .cta-button:hover{transform:translateY(-3px);box-shadow:0 2px 20px rgba(255,215,0,.7)}
+
     header{position:fixed;inset-block-start:0;inset-inline:0;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(18,18,18,.9);backdrop-filter:blur(10px);z-index:999}
     .logo{font-size:2rem;font-weight:700;letter-spacing:2px}
     nav a{margin-inline-start:1.25rem;position:relative;transition:color .3s}
     nav a::after{content:"";position:absolute;inline-size:0;height:2px;inset-block-end:-4px;inset-inline-start:0;background:var(--accent);transition:inline-size .3s}
     nav a:hover{color:var(--accent)}nav a:hover::after{inline-size:100%}
+
     .hero{min-block-size:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 5%;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url('/api/placeholder/1920/1080') center/cover no-repeat}
     .hero h1{font-size:clamp(2.5rem,4vw+1rem,3.75rem);margin-block-end:1rem;text-shadow:0 0 20px rgba(106,90,205,.6)}
     .hero p{font-size:1.25rem;max-inline-size:42rem;margin-block-end:1.5rem}
+
     .about{display:flex;gap:3rem;align-items:center;justify-content:center;background:var(--bg-alt);padding:5rem 5%}
     .about img{max-inline-size:40%;border-radius:10px;box-shadow:0 0 30px rgba(0,0,0,.5)}
     .about-content{max-inline-size:50%;text-align:left}
+
     .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-inline-size:1200px;margin-inline:auto;padding:5rem 5%}
     .service-box{background:var(--bg-alt);padding:1.75rem;border-radius:12px;display:flex;flex-direction:column;justify-content:space-between;min-block-size:260px;box-shadow:0 0 0 1px rgba(255,255,255,.05);transition:transform .25s,box-shadow .25s}
     .service-box:hover{transform:translateY(-4px);box-shadow:0 4px 16px rgba(0,0,0,.35)}
     .service-box h3{font-size:1.45rem;margin-block-end:.75rem;color:var(--accent)}
     .service-box p{flex-grow:1;margin-block-end:1rem}
+
     .testimonials{background:var(--bg-alt);padding:5rem 5%}
     .testimonial{font-family:'Satisfy',cursive;font-style:italic;font-size:1.25rem;max-inline-size:36rem;margin-inline:auto;margin-block-end:2rem}
     cite{font-style:normal;font-weight:700}
+
     .gallery,.contact{padding:5rem 5%;text-align:center}
     .pa-gallery-player-widget,.pa-carousel-widget{visibility:hidden;min-block-size:400px}
+
     .google-form-wrapper iframe{border:none;border-radius:10px;box-shadow:0 0 15px rgba(0,0,0,.3)}
+
     footer{padding:2rem 5%;text-align:center;background:var(--bg-alt)}
+
     .skip-link{position:absolute;inset-block-start:0;inset-inline-start:0;background:var(--accent);color:var(--bg-dark);padding:.5rem 1rem;transform:translateY(-100%);transition:transform .3s;z-index:1000}
     .skip-link:focus{transform:translateY(0)}
+
     @media(max-width:768px){.about{flex-direction:column;text-align:center}.about img{max-inline-size:80%}.about-content{max-inline-size:90%}}
   </style>
 </head>
@@ -72,8 +83,8 @@
   <div id="cookie-banner" class="cookie-banner" hidden>
     <p>We use cookies to enhance site functionality and measure traffic. By clicking “Accept all” you consent to our use of cookies. <a href="/privacy.html" target="_blank" rel="noopener">Learn more</a>.</p>
     <div class="cookie-actions">
-      <button id="cookie-accept">Accept all</button>
-      <button id="cookie-decline">Decline</button>
+      <button id="cookie-accept" type="button">Accept all</button>
+      <button id="cookie-decline" type="button">Decline</button>
     </div>
   </div>
 
@@ -98,4 +109,5 @@
 
     <!-- About -->
     <section id="about" class="about" aria-labelledby="about-heading" role="region">
-      <img src="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N
+      <img src="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N39evup663ZHXW9LPY1h4_m0oUzsn
+
