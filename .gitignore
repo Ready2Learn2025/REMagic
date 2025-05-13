@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node / tooling (future-proof)
+node_modules/
+dist/
+build/
+
+# Netlify & Vite
+.netlify/
+.vite/
+
+git add LICENSE && git commit -m "chore: add MIT license"
