@@ -1,190 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robert Ellams - Magic Experience</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robert Ellams - Magic Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-  <!-- PublicAlbum.js Embed Script -->
-  <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
-  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
+    <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
 <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmaljj78c001hzs11cqkxflxz'></zapier-interfaces-chatbot-embed>
 
-  <!-- Critical CSS Inline -->
-  <style>
-    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
-    body { font-family:'Cinzel',serif; background:#121212; color:#F4F4F4; line-height:1.6; scroll-behavior:smooth }
-    header { position:fixed; top:0; left:0; width:100%; background:rgba(18,18,18,0.9); padding:1rem 5%; display:flex; justify-content:space-between; align-items:center; backdrop-filter:blur(10px); z-index:1000 }
-    .logo { font-size:2rem; font-weight:700; color:#F4F4F4; text-decoration:none; letter-spacing:2px }
-    nav a { color:#F4F4F4; text-decoration:none; margin-left:20px; position:relative; transition:color .3s }
-    nav a::after { content:''; position:absolute; width:0; height:2px; bottom:-5px; left:0; background:#FFD700; transition:width .3s }
-    nav a:hover { color:#FFD700 }
-    nav a:hover::after { width:100% }
-    .hero { height:85vh; background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/api/placeholder/1920/1080')center/cover no-repeat; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 5% }
-    .hero h1 { font-size:3.5rem; margin-bottom:1rem; text-shadow:0 0 20px rgba(106,90,205,0.6) }
-    .hero p { font-size:1.3rem; margin-bottom:1.5rem; max-width:700px }
-    .cta-button { display:inline-block; padding:12px 30px; background:#FFD700; color:#121212; text-decoration:none; border-radius:5px; box-shadow:0 0 15px rgba(255,215,0,0.5); border:1px solid rgba(0,0,0,0.2); transition:transform .3s,box-shadow .3s }
-    .cta-button:hover { transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.7); background:#FFE873 }
+    <style>
+        *,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
+        body { font-family:'Cinzel',serif; background:#121212; color:#F4F4F4; line-height:1.6; scroll-behavior:smooth }
+        header { position:fixed; top:0; left:0; width:100%; background:rgba(18,18,18,0.9); padding:1rem 5%; display:flex; justify-content:space-between; align-items:center; backdrop-filter:blur(10px); z-index:1000 }
+        .logo { font-size:2rem; font-weight:700; color:#F4F4F4; text-decoration:none; letter-spacing:2px }
+        nav a { color:#F4F4F4; text-decoration:none; margin-left:20px; position:relative; transition:color .3s }
+        nav a::after { content:''; position:absolute; width:0; height:2px; bottom:-5px; left:0; background:#FFD700; transition:width .3s }
+        nav a:hover { color:#FFD700 }
+        nav a:hover::after { width:100% }
+        .hero { height:85vh; background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/api/placeholder/1920/1080')center/cover no-repeat; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 5% }
+        .hero h1 { font-size:3.5rem; margin-bottom:1rem; text-shadow:0 0 20px rgba(106,90,205,0.6) }
+        .hero p { font-size:1.3rem; margin-bottom:1.5rem; max-width:700px }
+        .cta-button { display:inline-block; padding:12px 30px; background:#FFD700; color:#121212; text-decoration:none; border-radius:5px; box-shadow:0 0 15px rgba(255,215,0,0.5); border:1px solid rgba(0,0,0,0.2); transition:transform .3s,box-shadow .3s }
+        .cta-button:hover { transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.7); background:#FFE873 }
 
-    /* Hide placeholder until PublicAlbum.js replaces it */
-    .pa-gallery-player-widget,
-    .pa-carousel-widget { display: none; }
-  </style>
+        /* Hide placeholder until PublicAlbum.js replaces it */
+        .pa-gallery-player-widget,
+        .pa-carousel-widget { display: none; }
+
+        /* Cookie Consent Styles */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #222;
+            color: #eee;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1001;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #cookie-banner p {
+            margin-right: 20px;
+            font-size: 0.9rem;
+        }
+
+        .cookie-buttons button {
+            background-color: #FFD700;
+            color: #121212;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .cookie-buttons button:hover {
+            background-color: #FFE873;
+        }
+    </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <header>
-    <a href="#" class="logo">Robert Ellams</a>
-    <nav aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header>
+        <a href="#" class="logo">Robert Ellams</a>
+        <nav aria-label="Primary">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <main id="main" tabindex="-1">
-    <!-- Hero -->
-    <section class="hero" role="region" aria-labelledby="hero-heading">
-      <h1 id="hero-heading">Experience the Magic</h1>
-      <p>Step into a world of wonder with Robert Ellams</p>
-      <a href="#contact" class="cta-button">Book a Show</a>
-    </section>
+    <main id="main" tabindex="-1">
+        <section class="hero" role="region" aria-labelledby="hero-heading">
+            <h1 id="hero-heading">Experience the Magic</h1>
+            <p>Step into a world of wonder with Robert Ellams</p>
+            <a href="#contact" class="cta-button">Book a Show</a>
+        </section>
 
-    <!-- About -->
-    <section id="about" class="about" role="region" aria-labelledby="about-heading">
-      <a href="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N39evup663ZHXW9LPY1h4_m0oUzsnc_QN6C4hm6MudoJDup2k2tsScnrQ1BbqWhtLFwF1oBo=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N39evup663ZHXW9LPY1h4_m0oUzsnc_QN6C4hm6MudoJDup2k2tsScnrQ1BbqWhtLFwF1oBo=w600-h315-p-k" /> </a>
-      <div class="about-content">
-        <h2 id="about-heading">About Robert Ellams</h2>
-        <p>Based in Tameside between Manchester, Oldham and Huddersfield, he travels nationwide. Robert’s unique blend of astonishing magic and friendly comedic banter elevates events from weddings and birthdays to corporate dinners and charity fundraisers.</p>
-      </div>
-    </section>
+        <section id="about" class="about" role="region" aria-labelledby="about-heading">
+            <a href="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N39evup663ZHXW9LPY1h4_m0oUzsnc_QN6C4hm6MudoJDup2k2tsScnrQ1BbqWhtLFwF1oBo=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N39evup663ZHXW9LPY1h4_m0oUzsnc_QN6C4hm6MudoJDup2k2tsScnrQ1BbqWhtLFwF1oBo=w600-h315-p-k" /> </a>
+            <div class="about-content">
+                <h2 id="about-heading">About Robert Ellams</h2>
+                <p>Based in Tameside between Manchester, Oldham and Huddersfield, he travels nationwide. Robert’s unique blend of astonishing magic and friendly comedic banter elevates events from weddings and birthdays to corporate dinners and charity fundraisers.</p>
+            </div>
+        </section>
 
-    <!-- Services -->
-    <section id="services" class="services" role="region" aria-labelledby="services-heading">
-      <h2 id="services-heading">Services</h2>
-      <div class="service-box" role="article">
-        <h3>Weddings</h3>
-        <p>Add a magical touch to your special day with entertainment that delights guests.</p>
-        <a href="#contact" class="cta-button">Learn More</a>
-      </div>
-      <div class="service-box" role="article">
-        <h3>Corporate Functions</h3>
-        <p>Engage and impress your team with sophisticated close-up magic.</p>
-        <a href="#contact" class="cta-button">Learn More</a>
-      </div>
-      <div class="service-box" role="article">
-        <h3>Dinners & Evening Functions</h3>
-        <p>Create an unforgettable atmosphere with intimate magical moments.</p>
-        <a href="#contact" class="cta-button">Learn More</a>
-      </div>
-      <div class="service-box" role="article">
-        <h3>Birthdays</h3>
-        <p>Make birthdays extraordinary with magic that amazes all ages.</p>
-        <a href="#contact" class="cta-button">Learn More</a>
-      </div>
-      <div class="service-box" role="article">
-        <h3>Charity Fundraisers</h3>
-        <p>Support your cause with captivating magic that engages and inspires donors.</p>
-        <a href="#contact" class="cta-button">Learn More</a>
-      </div>
-    </section>
+        <section id="services" class="services" role="region" aria-labelledby="services-heading">
+            <h2 id="services-heading">Services</h2>
+            <div class="service-box" role="article">
+                <h3>Weddings</h3>
+                <p>Add a magical touch to your special day with entertainment that delights guests.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+            <div class="service-box" role="article">
+                <h3>Corporate Functions</h3>
+                <p>Engage and impress your team with sophisticated close-up magic.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+            <div class="service-box" role="article">
+                <h3>Dinners & Evening Functions</h3>
+                <p>Create an unforgettable atmosphere with intimate magical moments.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+            <div class="service-box" role="article">
+                <h3>Birthdays</h3>
+                <p>Make birthdays extraordinary with magic that amazes all ages.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+            <div class="service-box" role="article">
+                <h3>Charity Fundraisers</h3>
+                <p>Support your cause with captivating magic that engages and inspires donors.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+        </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials" role="region" aria-labelledby="testimonials-heading">
-      <h2 id="testimonials-heading">What People Say</h2>
-      <div class="testimonial">“Robert's magic is not just a performance, it's an experience that leaves you believing in the impossible!” – Sarah J.</div>
-      <div class="testimonial">“Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen.” – Michael T.</div>
-    </section>
+        <section id="testimonials" class="testimonials" role="region" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading">What People Say</h2>
+            <div class="testimonial">“Robert's magic is not just a performance, it's an experience that leaves you believing in the impossible!” – Sarah J.</div>
+            <div class="testimonial">“Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen.” – Michael T.</div>
+        </section>
 
-<!-- Gallery (PublicAlbum.js) -->
 <section id="gallery" class="gallery" role="region" aria-labelledby="gallery-heading">
-  <h2 id="gallery-heading">Gallery</h2>
+    <h2 id="gallery-heading">Gallery</h2>
 
-  <div
-  <a href="https://lh3.googleusercontent.com/pw/AP1GczNoK2EwYYhLtd0kfHXFbwpucFaxx9sg2k2CsEjLhSK4xL916mrGBPmB1aao_g2G9a_K8x6Tw-napjnV6REetVwqNMkLnq437FaUBBbyO7OSoe7nmng=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczNoK2EwYYhLtd0kfHXFbwpucFaxx9sg2k2CsEjLhSK4xL916mrGBPmB1aao_g2G9a_K8x6Tw-napjnV6REetVwqNMkLnq437FaUBBbyO7OSoe7nmng=w600-h315-p-k" /> </a>
-  <a href="https://lh3.googleusercontent.com/pw/AP1GczMmLnEBV8MjhYy0iTx81QUUx5n5PK9dknZBa982Ta7BYpu-ruAkzK0m_aOL0nwkygkxY7WPEnLDCM9GnhgPzDGeii3E7uOqu411Wcxu6QsdgRNn5xc=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczMmLnEBV8MjhYy0iTx81QUUx5n5PK9dknZBa982Ta7BYpu-ruAkzK0m_aOL0nwkygkxY7WPEnLDCM9GnhgPzDGeii3E7uOqu411Wcxu6QsdgRNn5xc=w568-h315-p-k" /> </a>  
-  </div>
+    <div
+    <a href="https://lh3.googleusercontent.com/pw/AP1GczNoK2EwYYhLtd0kfHXFbwpucFaxx9sg2k2CsEjLhSK4xL916mrGBPmB1aao_g2G9a_K8x6Tw-napjnV6REetVwqNMkLnq437FaUBBbyO7OSoe7nmng=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczNoK2EwYYhLtd0kfHXFbwpucFaxx9sg2k2CsEjLhSK4xL916mrGBPmB1aao_g2G9a_K8x6Tw-napjnV6REetVwqNMkLnq437FaUBBbyO7OSoe7nmng=w600-h315-p-k" /> </a>
+    <a href="https://lh3.googleusercontent.com/pw/AP1GczMmLnEBV8MjhYy0iTx81QUUx5n5PK9dknZBa982Ta7BYpu-ruAkzK0m_aOL0nwkygkxY7WPEnLDCM9GnhgPzDGeii3E7uOqu411Wcxu6QsdgRNn5xc=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczMmLnEBV8MjhYy0iTx81QUUx5n5PK9dknZBa982Ta7BYpu-ruAkzK0m_aOL0nwkygkxY7WPEnLDCM9GnhgPzDGeii3E7uOqu411Wcxu6QsdgRNn5xc=w568-h315-p-k" /> </a>
+    </div>
 </section>
 
 </div>
 
 
-      </div>
+        </div>
     </section>
 
-    <!-- Contact (Google Form Embed) -->
     <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Book a callback below </h2>
-      <div class="google-form-wrapper" style="max-width:640px;margin:0 auto;">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLScg-I0wQFZFeOG9ZGxdn6tgqLuZd-kkFlkBn_2HA89m0DXKMQ/viewform?embedded=true" 
-          width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" 
-          title="Contact Robert Ellams Form">Loading…</iframe>
-      </div>
+        <h2 id="contact-heading">Book a callback below </h2>
+        <div class="google-form-wrapper" style="max-width:640px;margin:0 auto;">
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLScg-I0wQFZFeOG9ZGxdn6tgqLuZd-kkFlkBn_2HA89m0DXKMQ/viewform?embedded=true"
+                width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0"
+                title="Contact Robert Ellams Form">Loading…</iframe>
+        </div>
     <div class="social-icons" aria-label="Social media links">
-  <ahref="https://www.facebook.com/robert.ellams.54/?locale=en_GB"
+<ahref="https://www.facebook.com/robert.ellams.54/?locale=en_GB"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Facebook">
     Facebook
 
-      </div>
+        </div>
     </section>
-  </main>
+</main>
 
-  
-             <footer>© 2025 Robert Ellams Magic. All Rights Reserved.</footer>
 
-  <!-- Deferred Non-critical CSS -->
-  <style>
-    section { padding:5rem 5%; text-align:center }
-    section h2 { font-size:3rem; margin-bottom:2rem }
-    .about { background:#1E1E1E; display:flex; align-items:center; gap:3rem }
-    .about img { max-width:40%; border-radius:10px; box-shadow:0 0 30px rgba(0,0,0,0.5) }
-    .about-content { text-align:left; max-width:50% }
-    .services { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:2rem; max-width:1200px; margin:0 auto }
-    .service-box { background:#333; padding:1.5rem; border-radius:10px; display:flex; flex-direction:column; align-items:center; text-align:center; transition:transform .3s,box-shadow .3s }
-    .service-box h3 { margin-bottom:1rem; color:#F4F4F4 }
-    .service-box p { margin-bottom:1rem; flex-grow:1 }
-    .service-box:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.3) }
-    @media(max-width:768px) { .service-box { padding:1rem } }
-    .testimonials { background:#1E1E1E }
-    .testimonial { font-family:'Satisfy',cursive; font-size:1.2rem; max-width:600px; margin:0 auto 2rem; font-style:italic }
-    .google-form-wrapper iframe { border:none; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3) }
-    .skip-link { position:absolute; top:0; left:0; background:#FFD700; color:#121212; padding:8px 16px; transform:translateY(-100%); transition:transform .3s; z-index:1001 }
-    .skip-link:focus { transform:translateY(0) }
-  </style>
+        <footer>© 2025 Robert Ellams Magic. All Rights Reserved.</footer>
 
-  <!-- Deferred JS -->
-  <script defer>
-    // Particle animation
-    function createMagicParticles() {
-      const hero = document.querySelector('.hero');
-      for (let i = 0; i < 20; i++) {
-        const p = document.createElement('div');
-        p.className = 'magic-particle';
-        const size = Math.random() * 5 + 2;
-        p.style.width = p.style.height = `${size}px`;
-        p.style.left = `${Math.random() * 100}%`;
-        p.style.top = `${Math.random() * 100}%`;
-        p.style.opacity = Math.random();
-        hero.appendChild(p);
-      }
-    }
-    document.addEventListener('DOMContentLoaded', createMagicParticles);
+    <div id="cookie-banner">
+        <p>This website uses cookies to enhance your experience. By continuing to browse, you consent to our use of cookies.</p>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies()">Accept</button>
+            <button onclick="rejectCookies()">Reject</button>
+            <button onclick="manageCookies()">Manage Preferences</button>
+        </div>
+    </div>
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior:'smooth' });
-      });
-    });
-  </script>
+    <style>
+        section { padding:5rem 5%; text-align:center }
+        section h2 { font-size:3rem; margin-bottom:2rem }
+        .about { background:#1E1E1E; display:flex; align-items:center; gap:3rem }
+        .about img { max-width:40%; border-radius:10px; box-shadow:0 0 30px rgba(0,0,0,0.5) }
+        .about-content { text-align:left; max-width:50% }
+        .services { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:2rem; max-width:1200px; margin:0 auto }
+        .service-box { background:#333; padding:1.5rem; border-radius:10px; display:flex; flex-direction:column; align-items:center; text-align:center; transition:transform .3s,box-shadow .3s }
+        .service-box h3 { margin-bottom:1rem; color:#F4F4F4 }
+        .service-box p { margin-bottom:1rem; flex-grow:1 }
+        .service-box:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.3) }
+        @media(max-width:768px) { .service-box { padding:1rem } }
+        .testimonials { background:#1E1E1E }
+        .testimonial { font-family:'Satisfy',cursive; font-size:1.2rem; max-width:600px; margin:0 auto 2rem; font-style:italic }
+        .google-form-wrapper iframe { border:none; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3) }
+        .skip-link { position:absolute; top:0; left:0; background:#FFD700; color:#121212; padding:8px 16px; transform:translateY(-100%); transition:transform .3s; z-index:1001 }
+        .skip-link:focus { transform:translateY(0) }
+    </style>
+
+    <script defer>
+        // Particle animation
+        function createMagicParticles() {
+            const hero = document.querySelector('.hero');
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'magic-particle';
+                const size = Math.random() * 5 + 2;
+                p.style.width = p.style.height = `${size}px`;
+                p.style.left = `${Math.random() * 100}%`;
+                p.style.top = `${Math.random() * 100}%`;
+                p.style.opacity = Math.random();
+                hero.appendChild(p);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', createMagicParticles);
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior:'smooth' });
+            });
+        });
+
+        // Cookie Consent Logic
+        const cookieBanner = document.getElementById('cookie-banner');
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = `expires=${date.toUTCString()}`;
+            document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=Lax`;
+        }
+
+        function acceptCookies() {
+            setCookie('cookieConsent', 'accepted', 30); // Example: Consent for 30 days
+            cookieBanner.style.display = 'none';
+            // Implement logic to enable all cookies here
+            console.log('Cookies accepted');
+        }
+
+        function rejectCookies() {
+            setCookie('cookieConsent', 'rejected', 30); // Example: Rejected for 30 days
+            cookieBanner.style.display = 'none';
+            // Implement logic to disable non-essential cookies here
+            console.log('Cookies rejected');
+        }
+
+        function manageCookies() {
+            // Implement logic to show a cookie settings modal or page
+            alert('Cookie preferences management is not implemented in this basic example.');
+            console.log('Manage cookies clicked');
+        }
+
+        // Check if cookie consent is already given
+        if (getCookie('cookieConsent') === 'accepted' || getCookie('cookieConsent') === 'rejected') {
+            cookieBanner.style.display = 'none';
+            if (getCookie('cookieConsent') === 'accepted') {
+                // Enable all cookies
+            } else {
+                // Disable non-essential cookies
+            }
+        } else {
+            cookieBanner.style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
