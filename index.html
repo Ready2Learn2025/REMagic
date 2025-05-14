@@ -300,3 +300,38 @@
             const expires = `expires=${date.toUTCString()}`;
             document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=Lax`;
         }
+
+        function acceptCookies() {
+            setCookie('cookieConsent', 'accepted', 30); // Example: Consent for 30 days
+            cookieBanner.style.display = 'none';
+            // Implement logic to enable all cookies here
+            console.log('Cookies accepted');
+        }
+
+        function rejectCookies() {
+            setCookie('cookieConsent', 'rejected', 30); // Example: Rejected for 30 days
+            cookieBanner.style.display = 'none';
+            // Implement logic to disable non-essential cookies here
+            console.log('Cookies rejected');
+        }
+
+        function manageCookies() {
+            // Implement logic to show a cookie settings modal or page
+            alert('Cookie preferences management is not implemented in this basic example.');
+            console.log('Manage cookies clicked');
+        }
+
+        // Check if cookie consent is already given
+        if (getCookie('cookieConsent') === 'accepted' || getCookie('cookieConsent') === 'rejected') {
+            cookieBanner.style.display = 'none';
+            if (getCookie('cookieConsent') === 'accepted') {
+                // Enable all cookies
+            } else {
+                // Disable non-essential cookies
+            }
+        } else {
+            cookieBanner.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
