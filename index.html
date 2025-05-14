@@ -7,29 +7,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Satisfy&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-
     <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
     <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
-<zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmaljj78c001hzs11cqkxflxz'></zapier-interfaces-chatbot-embed>
 
     <style>
+        /* General Resets and Base Styles */
         *,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
         body { font-family:'Cinzel',serif; background:#121212; color:#F4F4F4; line-height:1.6; scroll-behavior:smooth }
+
+        /* Header Styles */
         header { position:fixed; top:0; left:0; width:100%; background:rgba(18,18,18,0.9); padding:1rem 5%; display:flex; justify-content:space-between; align-items:center; backdrop-filter:blur(10px); z-index:1000 }
         .logo { font-size:2rem; font-weight:700; color:#F4F4F4; text-decoration:none; letter-spacing:2px }
         nav a { color:#F4F4F4; text-decoration:none; margin-left:20px; position:relative; transition:color .3s }
         nav a::after { content:''; position:absolute; width:0; height:2px; bottom:-5px; left:0; background:#FFD700; transition:width .3s }
         nav a:hover { color:#FFD700 }
         nav a:hover::after { width:100% }
-        .hero { height:85vh; background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/api/placeholder/1920/1080')center/cover no-repeat; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 5% }
-        .hero h1 { font-size:3.5rem; margin-bottom:1rem; text-shadow:0 0 20px rgba(106,90,205,0.6) }
-        .hero p { font-size:1.3rem; margin-bottom:1.5rem; max-width:700px }
-        .cta-button { display:inline-block; padding:12px 30px; background:#FFD700; color:#121212; text-decoration:none; border-radius:5px; box-shadow:0 0 15px rgba(255,215,0,0.5); border:1px solid rgba(0,0,0,0.2); transition:transform .3s,box-shadow .3s }
+
+        /* Hero Section Styles */
+        .hero { min-height:85vh; background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://placehold.co/1920x1080/1a1a1a/FFD700?text=Magic+Awaits')center/cover no-repeat; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:5rem 5% 2rem; /* Adjusted padding for hero content */ }
+        .hero h1 { font-size:clamp(2.5rem, 5vw, 3.5rem); margin-bottom:1rem; text-shadow:0 0 20px rgba(106,90,205,0.6) }
+        .hero p { font-size:clamp(1rem, 2.5vw, 1.3rem); margin-bottom:1.5rem; max-width:700px }
+        .cta-button { display:inline-block; padding:12px 30px; background:#FFD700; color:#121212; text-decoration:none; border-radius:5px; box-shadow:0 0 15px rgba(255,215,0,0.5); border:1px solid rgba(0,0,0,0.2); transition:transform .3s,box-shadow .3s, background-color .3s; font-weight: bold; }
         .cta-button:hover { transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.7); background:#FFE873 }
 
-        /* Hide placeholder until PublicAlbum.js replaces it */
+        /* PublicAlbum Widget Styles */
         .pa-gallery-player-widget,
-        .pa-carousel-widget { display: none; }
+        .pa-carousel-widget { display: none; } /* Hide placeholder until PublicAlbum.js replaces it */
 
         /* Cookie Consent Styles */
         #cookie-banner {
@@ -40,18 +43,19 @@
             background-color: #222;
             color: #eee;
             padding: 15px 20px;
-            display: flex;
+            display: none; /* Initially hidden, JS will show it if needed */
             justify-content: space-between;
             align-items: center;
             z-index: 1001;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            gap: 10px; /* Space between text and buttons if they wrap */
         }
-
         #cookie-banner p {
             margin-right: 20px;
             font-size: 0.9rem;
+            flex-grow: 1; /* Allow text to take available space */
         }
-
         .cookie-buttons button {
             background-color: #FFD700;
             color: #121212;
@@ -63,29 +67,30 @@
             font-size: 0.9rem;
             transition: background-color 0.3s;
         }
-
         .cookie-buttons button:hover {
             background-color: #FFE873;
         }
+        .cookie-buttons button:first-child {
+            margin-left: 0; /* Remove margin for the first button if they stack */
+        }
+
 
         /* Contact Form Styles */
         .contact-form-wrapper {
             max-width: 640px;
-            margin: 0 auto;
+            margin: 2rem auto 0; /* Added top margin */
             background: #333;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             text-align: left;
         }
-
         .contact-form-wrapper label {
             display: block;
             margin-bottom: 8px;
             color: #eee;
             font-size: 0.9rem;
         }
-
         .contact-form-wrapper input[type="text"],
         .contact-form-wrapper input[type="email"],
         .contact-form-wrapper input[type="tel"],
@@ -100,12 +105,10 @@
             box-sizing: border-box;
             font-size: 0.9rem;
         }
-
         .contact-form-wrapper textarea {
             resize: vertical;
             min-height: 100px;
         }
-
         .contact-form-wrapper button[type="submit"] {
             background-color: #FFD700;
             color: #121212;
@@ -115,10 +118,103 @@
             cursor: pointer;
             font-size: 1rem;
             transition: background-color 0.3s;
+            font-weight: bold;
         }
-
         .contact-form-wrapper button[type="submit"]:hover {
             background-color: #FFE873;
+        }
+
+        /* Styles moved from the bottom of the body and consolidated */
+        section { padding:5rem 5%; text-align:center }
+        section h2 { font-size:clamp(2rem, 4vw, 3rem); margin-bottom:2rem } /* Responsive font size for section headings */
+
+        .about { background:#1E1E1E; display:flex; align-items:center; gap:2rem; flex-wrap: wrap; /* Allow wrapping */ justify-content: center; /* Center items when wrapped */ }
+        .about img {
+            max-width: 300px; /* Max width for the image */
+            width: 100%; /* Make it responsive within its container */
+            height: auto;
+            border-radius:10px;
+            box-shadow:0 0 30px rgba(0,0,0,0.5);
+            object-fit: cover; /* Ensure image covers its area well */
+        }
+        .about-content { text-align:left; flex-basis: 500px; flex-grow: 1; max-width: 100%; /* Ensure it doesn't overflow */ }
+
+        .services { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:2rem; max-width:1200px; margin:0 auto }
+        .service-box { background:#333; padding:1.5rem; border-radius:10px; display:flex; flex-direction:column; align-items:center; text-align:center; transition:transform .3s,box-shadow .3s }
+        .service-box h3 { margin-bottom:1rem; color:#F4F4F4; font-size: 1.5rem; }
+        .service-box p { margin-bottom:1rem; flex-grow:1 }
+        .service-box:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.3) }
+
+        .testimonials { background:#1E1E1E }
+        .testimonial { font-family:'Satisfy',cursive; font-size:clamp(1rem, 2vw, 1.2rem); max-width:600px; margin:0 auto 2rem; font-style:italic }
+
+        .gallery { /* Basic styling for gallery container */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .gallery img {
+            max-width: 300px; /* Limit image size */
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .skip-link { position:absolute; top:0; left:0; background:#FFD700; color:#121212; padding:8px 16px; transform:translateY(-120%); transition:transform .3s; z-index:1001; border-bottom-right-radius: 5px; }
+        .skip-link:focus { transform:translateY(0) }
+
+        /* Styles for Magic Particles */
+        .magic-particle {
+            position: absolute;
+            background-color: rgba(255, 215, 0, 0.5); /* Gold-ish color */
+            border-radius: 50%;
+            pointer-events: none; /* Particles should not interfere with clicks */
+            animation: float 10s infinite ease-in-out alternate;
+            opacity: 0; /* JS will set initial opacity */
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px) scale(1); }
+            25% { transform: translateY(-15px) translateX(5px) scale(1.1); }
+            50% { transform: translateY(-10px) translateX(15px) scale(0.9); }
+            75% { transform: translateY(5px) translateX(-10px) scale(1.2); }
+            100% { transform: translateY(10px) translateX(-5px) scale(0.8); }
+        }
+
+        .social-icons { margin-top: 20px; }
+        .social-icons a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem; /* Adjusted size */
+            transition: color 0.3s;
+        }
+        .social-icons a:hover { color: #FFE873; }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 2rem 5%;
+            background: #1E1E1E; /* Consistent dark background */
+            margin-top: 2rem; /* Space above footer */
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media(max-width:768px) {
+            header { padding: 1rem 3%; }
+            nav a { margin-left: 10px; font-size: 0.9rem; }
+            .logo { font-size: 1.5rem; }
+            .hero { padding: 4rem 3% 2rem; }
+            section { padding: 3rem 3%; }
+            .about { flex-direction: column; text-align: center; }
+            .about img { max-width: 80%; margin-bottom: 1.5rem; }
+            .about-content { text-align:center; max-width:100%; }
+            .service-box { padding:1rem }
+            #cookie-banner { flex-direction: column; align-items: stretch; text-align: center; }
+            #cookie-banner p { margin-right: 0; margin-bottom: 10px; }
+            .cookie-buttons { display: flex; justify-content: center; }
         }
     </style>
 </head>
@@ -143,7 +239,9 @@
         </section>
 
         <section id="about" class="about" role="region" aria-labelledby="about-heading">
-            <a href="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N39evup663ZHXW9LPY1h4_m0oUzsnc_QN6C4hm6MudoJDup2k2tsScnrQ1BbqWhtLFwF1oBo=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczO3MprkEvI2N8wbue7cQ22bh8lfk9-egJQYmkXJc36N39evup663ZHXW9LPY1h4_m0oUzsnc_QN6C4hm6MudoJDup2k2tsScnrQ1BbqWhtLFwF1oBo=w600-h315-p-k" /> </a>
+            <a href="https://lh3.googleusercontent.com/a/ACg8ocJ7_x7x7X0X7x7X0X7x7X0X7x7X0X7x7X0X7x7X=s300-c" aria-label="View Robert Ellams' profile picture">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocJ7_x7x7X0X7x7X0X7x7X0X7x7X0X7x7X0X7x7X=s300-c" alt="Portrait of Robert Ellams, Magician" onerror="this.onerror=null;this.src='https://placehold.co/300x300/333/eee?text=R.E.';"/>
+            </a>
             <div class="about-content">
                 <h2 id="about-heading">About Robert Ellams</h2>
                 <p>Based in Tameside between Manchester, Oldham and Huddersfield, he travels nationwide. Robert’s unique blend of astonishing magic and friendly comedic banter elevates events from weddings and birthdays to corporate dinners and charity fundraisers.</p>
@@ -185,153 +283,150 @@
             <div class="testimonial">“Absolutely mesmerizing! Robert's skills are beyond anything I've ever seen.” – Michael T.</div>
         </section>
 
-<section id="gallery" class="gallery" role="region" aria-labelledby="gallery-heading">
-    <h2 id="gallery-heading">Gallery</h2>
+        <section id="gallery" class="gallery" role="region" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading">Gallery</h2>
+            <a href="https://lh3.googleusercontent.com/pw/AP1GczP_X...=s1024" aria-label="View gallery image 1">
+                 <img src="https://lh3.googleusercontent.com/pw/AP1GczP_X...=s300-no" alt="Magic performance by Robert Ellams at an event" onerror="this.onerror=null;this.src='https://placehold.co/300x200/333/eee?text=Gallery+1';"/>
+            </a>
+            <a href="https://lh3.googleusercontent.com/pw/AP1GczO_Y...=s1024" aria-label="View gallery image 2">
+                 <img src="https://lh3.googleusercontent.com/pw/AP1GczO_Y...=s300-no" alt="Close-up magic by Robert Ellams with guests" onerror="this.onerror=null;this.src='https://placehold.co/300x200/333/eee?text=Gallery+2';"/>
+            </a>
+            </section>
+        <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Book a callback below</h2>
+            <div class="contact-form-wrapper">
+               <form action="#" method="POST" data-netlify="true" name="contact"> <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
 
-    <div
-    <a href="https://lh3.googleusercontent.com/pw/AP1GczNoK2EwYYhLtd0kfHXFbwpucFaxx9sg2k2CsEjLhSK4xL916mrGBPmB1aao_g2G9a_K8x6Tw-napjnV6REetVwqNMkLnq437FaUBBbyO7OSoe7nmng=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczNoK2EwYYhLtd0kfHXFbwpucFaxx9sg2k2CsEjLhSK4xL916mrGBPmB1aao_g2G9a_K8x6Tw-napjnV6REetVwqNMkLnq437FaUBBbyO7OSoe7nmng=w600-h315-p-k" /> </a>
-    <a href="https://lh3.googleusercontent.com/pw/AP1GczMmLnEBV8MjhYy0iTx81QUUx5n5PK9dknZBa982Ta7BYpu-ruAkzK0m_aOL0nwkygkxY7WPEnLDCM9GnhgPzDGeii3E7uOqu411Wcxu6QsdgRNn5xc=w2400?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/pw/AP1GczMmLnEBV8MjhYy0iTx81QUUx5n5PK9dknZBa982Ta7BYpu-ruAkzK0m_aOL0nwkygkxY7WPEnLDCM9GnhgPzDGeii3E7uOqu411Wcxu6QsdgRNn5xc=w568-h315-p-k" /> </a>
-    </div>
-</section>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
-</div>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone">
 
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4"></textarea> <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="social-icons" aria-label="Social media links">
+                <a href="https://www.facebook.com/robert.ellams.54/?locale=en_GB"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Robert Ellams on Facebook">
+                   Facebook
+                </a>
+                </div>
+        </section>
+    </main>
 
-        </div>
-    </section>
-
-    <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Book a callback below </h2>
-        <div class="contact-form-wrapper">
-         <form action="#" method="POST" netlify name="contact">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone">
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message"></textarea>
-
-    <button type="submit">Send Message</button>
-</form>
-        </div>
-    <div class="social-icons" aria-label="Social media links">
-<ahref="https://www.facebook.com/robert.ellams.54/?locale=en_GB"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook">
-    Facebook
-
-        </div>
-    </section>
-</main>
-
-
-        <footer>© 2025 Robert Ellams Magic. All Rights Reserved.</footer>
+    <footer>© 2025 Robert Ellams Magic. All Rights Reserved.</footer>
 
     <div id="cookie-banner">
-        <p>This website uses cookies to enhance your experience. By continuing to browse, you consent to our use of cookies.</p>
+        <p>This website uses cookies to enhance your experience. By continuing to browse, you consent to our use of cookies. <a href="/privacy-policy" style="color: #FFD700; text-decoration: underline;">Learn more</a>.</p>
         <div class="cookie-buttons">
-            <button onclick="acceptCookies()">Accept</button>
-            <button onclick="rejectCookies()">Reject</button>
-            <button onclick="manageCookies()">Manage Preferences</button>
+            <button onclick="acceptCookies()" aria-label="Accept cookies">Accept</button>
+            <button onclick="rejectCookies()" aria-label="Reject cookies">Reject</button>
+            <button onclick="manageCookies()" aria-label="Manage cookie preferences">Manage Preferences</button>
         </div>
     </div>
 
-    <style>
-        section { padding:5rem 5%; text-align:center }
-        section h2 { font-size:3rem; margin-bottom:2rem }
-        .about { background:#1E1E1E; display:flex; align-items:center; gap:3rem }
-        .about img { max-width:40%; border-radius:10px; box-shadow:0 0 30px rgba(0,0,0,0.5) }
-        .about-content { text-align:left; max-width:50% }
-        .services { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:2rem; max-width:1200px; margin:0 auto }
-        .service-box { background:#333; padding:1.5rem; border-radius:10px; display:flex; flex-direction:column; align-items:center; text-align:center; transition:transform .3s,box-shadow .3s }
-        .service-box h3 { margin-bottom:1rem; color:#F4F4F4 }
-        .service-box p { margin-bottom:1rem; flex-grow:1 }
-        .service-box:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.3) }
-        @media(max-width:768px) { .service-box { padding:1rem } }
-        .testimonials { background:#1E1E1E }
-        .testimonial { font-family:'Satisfy',cursive; font-size:1.2rem; max-width:600px; margin:0 auto 2rem; font-style:italic }
-        .skip-link { position:absolute; top:0; left:0; background:#FFD700; color:#121212; padding:8px 16px; transform:translateY(-100%); transition:transform .3s; z-index:1001 }
-        .skip-link:focus { transform:translateY(0) }
-    </style>
+    <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cmaljj78c001hzs11cqkxflxz'></zapier-interfaces-chatbot-embed>
 
     <script defer>
-        // Particle animation
-        function createMagicParticles() {
+        document.addEventListener('DOMContentLoaded', () => {
             const hero = document.querySelector('.hero');
-            for (let i = 0; i < 20; i++) {
-                const p = document.createElement('div');
-                p.className = 'magic-particle';
-                const size = Math.random() * 5 + 2;
-                p.style.width = p.style.height = `${size}px`;
-                p.style.left = `${Math.random() * 100}%`;
-                p.style.top = `${Math.random() * 100}%`;
-                p.style.opacity = Math.random();
-                hero.appendChild(p);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', createMagicParticles);
+            const cookieBanner = document.getElementById('cookie-banner');
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior:'smooth' });
+            // Particle animation
+            function createMagicParticles() {
+                if (!hero) return; // Guard clause if hero section isn't found
+                const particleCount = 20; // Number of particles
+                for (let i = 0; i < particleCount; i++) {
+                    const p = document.createElement('div');
+                    p.className = 'magic-particle';
+                    const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
+                    p.style.width = `${size}px`;
+                    p.style.height = `${size}px`;
+                    p.style.left = `${Math.random() * 100}%`;
+                    p.style.top = `${Math.random() * 100}%`;
+                    // Animation delay and initial opacity are handled by CSS @keyframes and class definition
+                    p.style.animationDelay = `${Math.random() * 10}s`; // Stagger animation start
+                    p.style.opacity = Math.random() * 0.4 + 0.2; // Ensure particles are somewhat visible (0.2 to 0.6)
+                    hero.appendChild(p);
+                }
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const hrefAttribute = this.getAttribute('href');
+                    // Ensure it's a valid selector and not just "#"
+                    if (hrefAttribute && hrefAttribute.length > 1) {
+                        const targetElement = document.querySelector(hrefAttribute);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
             });
-        });
 
-        // Cookie Consent Logic
-        const cookieBanner = document.getElementById('cookie-banner');
-
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            const expires = `expires=${date.toUTCString()}`;
-            document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=Lax`;
-        }
-
-        function acceptCookies() {
-            setCookie('cookieConsent', 'accepted', 30); // Example: Consent for 30 days
-            cookieBanner.style.display = 'none';
-            // Implement logic to enable all cookies here
-            console.log('Cookies accepted');
-        }
-
-        function rejectCookies() {
-            setCookie('cookieConsent', 'rejected', 30); // Example: Rejected for 30 days
-            cookieBanner.style.display = 'none';
-            // Implement logic to disable non-essential cookies here
-            console.log('Cookies rejected');
-        }
-
-        function manageCookies() {
-            // Implement logic to show a cookie settings modal or page
-            alert('Cookie preferences management is not implemented in this basic example.');
-            console.log('Manage cookies clicked');
-        }
-
-        // Check if cookie consent is already given
-        if (getCookie('cookieConsent') === 'accepted' || getCookie('cookieConsent') === 'rejected') {
-            cookieBanner.style.display = 'none';
-            if (getCookie('cookieConsent') === 'accepted') {
-                // Enable all cookies
-            } else {
-                // Disable non-essential cookies
+            // Cookie Consent Logic
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null; // Return null if cookie not found
             }
-        } else {
-            cookieBanner.style.display = 'flex';
-        }
+
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = `expires=${date.toUTCString()}`;
+                // Add SameSite=Lax; Secure; if served over HTTPS. For local dev, Secure might prevent cookie setting.
+                // For production, ensure your site is HTTPS and include Secure.
+                document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Lax`;
+            }
+
+            window.acceptCookies = function() { // Expose to global scope for inline onclick
+                setCookie('cookieConsent', 'accepted', 365);
+                if (cookieBanner) cookieBanner.style.display = 'none';
+                console.log('Cookies accepted. Implement logic to enable all cookies/scripts.');
+                // Example: Load analytics scripts or other cookie-dependent features
+            }
+
+            window.rejectCookies = function() { // Expose to global scope
+                setCookie('cookieConsent', 'rejected', 365);
+                if (cookieBanner) cookieBanner.style.display = 'none';
+                console.log('Cookies rejected. Implement logic to disable non-essential cookies/scripts.');
+                // Example: Ensure only essential cookies are used
+            }
+
+            window.manageCookies = function() { // Expose to global scope
+                // Replace alert with a proper modal or link to a cookie settings page
+                alert('Cookie preferences management needs to be implemented. This could open a modal with cookie categories or link to a privacy policy page.');
+                console.log('Manage cookies clicked');
+            }
+
+            // Check if cookie consent is already given
+            const consent = getCookie('cookieConsent');
+            if (cookieBanner) { // Ensure banner element exists
+                if (consent === 'accepted') {
+                    cookieBanner.style.display = 'none';
+                    console.log('Cookie consent previously accepted.');
+                    // Initialize accepted cookie features
+                } else if (consent === 'rejected') {
+                    cookieBanner.style.display = 'none';
+                    console.log('Cookie consent previously rejected.');
+                    // Ensure non-essential cookies/scripts are disabled
+                } else {
+                    cookieBanner.style.display = 'flex'; // Show banner if no consent cookie is found
+                }
+            }
+
+            // Initialize particles
+            createMagicParticles();
+        });
     </script>
 </body>
 </html>
