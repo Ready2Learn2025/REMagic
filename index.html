@@ -67,6 +67,59 @@
         .cookie-buttons button:hover {
             background-color: #FFE873;
         }
+
+        /* Contact Form Styles */
+        .contact-form-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        .contact-form-wrapper label {
+            display: block;
+            margin-bottom: 8px;
+            color: #eee;
+            font-size: 0.9rem;
+        }
+
+        .contact-form-wrapper input[type="text"],
+        .contact-form-wrapper input[type="email"],
+        .contact-form-wrapper input[type="tel"],
+        .contact-form-wrapper textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #444;
+            color: #eee;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+
+        .contact-form-wrapper textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form-wrapper button[type="submit"] {
+            background-color: #FFD700;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form-wrapper button[type="submit"]:hover {
+            background-color: #FFE873;
+        }
     </style>
 </head>
 <body>
@@ -149,11 +202,22 @@
 
     <section id="contact" class="contact" role="region" aria-labelledby="contact-heading">
         <h2 id="contact-heading">Book a callback below </h2>
-        <div class="google-form-wrapper" style="max-width:640px;margin:0 auto;">
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLScg-I0wQFZFeOG9ZGxdn6tgqLuZd-kkFlkBn_2HA89m0DXKMQ/viewform?embedded=true"
-                width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0"
-                title="Contact Robert Ellams Form">Loading…</iframe>
+        <div class="contact-form-wrapper">
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone">
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     <div class="social-icons" aria-label="Social media links">
 <ahref="https://www.facebook.com/robert.ellams.54/?locale=en_GB"
@@ -192,7 +256,6 @@
         @media(max-width:768px) { .service-box { padding:1rem } }
         .testimonials { background:#1E1E1E }
         .testimonial { font-family:'Satisfy',cursive; font-size:1.2rem; max-width:600px; margin:0 auto 2rem; font-style:italic }
-        .google-form-wrapper iframe { border:none; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3) }
         .skip-link { position:absolute; top:0; left:0; background:#FFD700; color:#121212; padding:8px 16px; transform:translateY(-100%); transition:transform .3s; z-index:1001 }
         .skip-link:focus { transform:translateY(0) }
     </style>
@@ -237,38 +300,3 @@
             const expires = `expires=${date.toUTCString()}`;
             document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=Lax`;
         }
-
-        function acceptCookies() {
-            setCookie('cookieConsent', 'accepted', 30); // Example: Consent for 30 days
-            cookieBanner.style.display = 'none';
-            // Implement logic to enable all cookies here
-            console.log('Cookies accepted');
-        }
-
-        function rejectCookies() {
-            setCookie('cookieConsent', 'rejected', 30); // Example: Rejected for 30 days
-            cookieBanner.style.display = 'none';
-            // Implement logic to disable non-essential cookies here
-            console.log('Cookies rejected');
-        }
-
-        function manageCookies() {
-            // Implement logic to show a cookie settings modal or page
-            alert('Cookie preferences management is not implemented in this basic example.');
-            console.log('Manage cookies clicked');
-        }
-
-        // Check if cookie consent is already given
-        if (getCookie('cookieConsent') === 'accepted' || getCookie('cookieConsent') === 'rejected') {
-            cookieBanner.style.display = 'none';
-            if (getCookie('cookieConsent') === 'accepted') {
-                // Enable all cookies
-            } else {
-                // Disable non-essential cookies
-            }
-        } else {
-            cookieBanner.style.display = 'flex';
-        }
-    </script>
-</body>
-</html>
